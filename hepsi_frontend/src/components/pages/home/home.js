@@ -4,7 +4,7 @@ const HomePage = () => {
     return (
         <div className="home">
             <h1>HEPSI</h1>
-            <pre>Version 0.0.1 beta</pre>
+            <pre>Version 0.0.1 betaç</pre>
         </div>
     );
 }
