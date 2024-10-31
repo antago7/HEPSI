@@ -3,34 +3,44 @@ import './home.css';
 
 const HomePage = () => {
     return (
-        <div className='homaepage'>
-            <header className='header'>
-                <h1>HEPSI online platfrom</h1>
-                <nav>
+        <div className="home-container">
+            <header className="header">
+                <h1 className="logo">HEPSI Online Platform</h1>
+                <nav className="nav">
                     <a href="#courses">Courses</a>
-                    <a href="#about">About us</a>
-                    <a href="#contact">Contacts</a>
-                    <a href="#login">Login</a>
+                    <a href="#contacts">Contacts</a>
                 </nav>
             </header>
-            <section className='hero'>
-                <h2>Start learning programming</h2>
-                <button className='cta-button'> start education</button>
-                <button className='cta-button secondary'>See more</button>
-            </section>
-            <section id='courses' className='courses'>
-                <h2>Our courses</h2>
-                <div className='course-card'>Python courses</div>
-                <div className='course-card'>Docker</div>
-                <div className='course-card'>React</div>
-            </section>
-            <footer className='footer'>
-            <p>
-                 <a href="https://github.com/antago7" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </p>
-            </footer>
+
+            <main className="main-content">
+                <section className="intro-section">
+                    <h2>Start Learning Programming</h2>
+                    <p>Enhance your skills and dive into the world of coding with our specialized courses.</p>
+                    <div className="button-group">
+                        <button className="btn primary-btn">Start Education</button>
+                        <button className="btn secondary-btn">See More</button>
+                    </div>
+                </section>
+
+                <section className="courses-section" id="courses">
+                    <h3>Our Courses</h3>
+                    <div className="courses">
+                        <div className="course-card">Python Courses</div>
+                        <div className="course-card">Docker</div>
+                        <div className="course-card">React</div>
+                    </div>
+                </section>
+
+                <footer className="footer" id="contacts">
+
+                    
+                    <p>
+                        <a href="https://github.com/antago7" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </p>
+                </footer>
+            </main>
         </div>
     );
-}
+};
 
 export default HomePage;
