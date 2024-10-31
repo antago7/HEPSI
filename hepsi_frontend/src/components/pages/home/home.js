@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 import './home.css';
 
 const HomePage = () => {
@@ -7,8 +8,9 @@ const HomePage = () => {
             <header className="header">
                 <h1 className="logo">HEPSI Online Platform</h1>
                 <nav className="nav">
-                    <a href="#courses">Courses</a>
-                    <a href="#contacts">Contacts</a>
+                    <Link to="/courses">Courses</Link> {/* Ссылка на курсы */}
+                    <Link to="/contacts">Contacts</Link> {/* Ссылка на контакты */}
+                    <Link to="/auth">Auth</Link> {/* Ссылка на страницу аутентификации */}
                 </nav>
             </header>
 
@@ -32,8 +34,6 @@ const HomePage = () => {
                 </section>
 
                 <footer className="footer" id="contacts">
-
-                    
                     <p>
                         <a href="https://github.com/antago7" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </p>
