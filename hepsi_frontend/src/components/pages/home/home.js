@@ -25,7 +25,9 @@ const HomePage = () => {
                 <div className='course-card'>React</div>
             </section>
             <footer className='footer'>
-                <p>Our social media add here links</p>
+            <p>
+                 <a href="https://github.com/antago7" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
             </footer>
         </div>
     );
