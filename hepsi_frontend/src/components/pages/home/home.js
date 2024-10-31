@@ -1,10 +1,32 @@
 import React from 'react';
+import './home.css';
 
 const HomePage = () => {
     return (
-        <div className="home">
-            <h1>HEPSI</h1>
-            <pre>Version 0.0.1 betaç</pre>
+        <div className='homaepage'>
+            <header className='header'>
+                <h1>HEPSI online platfrom</h1>
+                <nav>
+                    <a href="#courses">Courses</a>
+                    <a href="#about">About us</a>
+                    <a href="#contact">Contacts</a>
+                    <a href="#login">Login</a>
+                </nav>
+            </header>
+            <section className='hero'>
+                <h2>Start learning programming</h2>
+                <button className='cta-button'> start education</button>
+                <button className='cta-button secondary'>See more</button>
+            </section>
+            <section id='courses' className='courses'>
+                <h2>Our courses</h2>
+                <div className='course-card'>Python courses</div>
+                <div className='course-card'>Docker</div>
+                <div className='course-card'>React</div>
+            </section>
+            <footer className='footer'>
+                <p>Our social media add here links</p>
+            </footer>
         </div>
     );
 }

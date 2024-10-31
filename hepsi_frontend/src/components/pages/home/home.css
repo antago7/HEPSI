@@ -1,0 +1,57 @@
+.homepage {
+    color: #333;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.header nav a{
+    margin: 0 15px;
+    text-decoration: none;
+    color:#000000;
+    font-weight: bold;
+}
+
+.header nav a:hover{
+    color:#00f2ff
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+   /* background-image: url('path/to/your/image.jpg'); */
+    background-size: cover;
+}
+
+.cta-button {
+    margin: 10px;
+    padding: 15px 30px;
+    border: none;
+    color: white;
+    background-color: #007aff; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.courses {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+}
+
+.course-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+}
