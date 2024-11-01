@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
-import { User } from './auth/ user.entity';
+import { User } from './auth/user.entity';
 import { JwtModule } from '@nestjs/jwt'; 
 import { ConfigModule } from '@nestjs/config';
 
@@ -29,7 +29,6 @@ import { ConfigModule } from '@nestjs/config';
       signOptions: { expiresIn: '1h' }, 
     }),
   ],
-  controllers: [AuthController], 
   providers: [AuthService],
 })
 export class AppModule {}

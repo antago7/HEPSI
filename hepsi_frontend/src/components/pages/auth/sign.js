@@ -15,7 +15,7 @@ const AuthForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/auth/signin', {
+      const response = await axios.post('http://localhost:3000/auth/signin', {
         username,
         password,
       });
@@ -35,7 +35,7 @@ const AuthForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/auth/signup', {
+      const response = await axios.post('http://localhost:3000/auth/signup', {
         username,
         password,
       });
@@ -104,14 +104,14 @@ const AuthForm = () => {
         <div className="toggle-container">
           <div className="toggle">
             <div className={`toggle-panel toggle-left ${isSignUp ? 'active' : ''}`}>
-              <h1>Kruto</h1>
+              <h1>HEPSI</h1>
               <p>Write your name to signup</p>
               <button className="hidden" id="login" onClick={toggleForm}>
                 Sign In
               </button>
             </div>
             <div className={`toggle-panel toggle-right ${!isSignUp ? 'active' : ''}`}>
-              <h1>Kruto</h1>
+              <h1>HEPSI</h1>
               <p>Login with your name</p>
               <button className="hidden" id="register" onClick={toggleForm}>
                 Sign Up
