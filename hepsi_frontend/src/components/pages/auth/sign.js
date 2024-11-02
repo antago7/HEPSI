@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "./sign.css";
 
-const AuthForm = () => {
+const AuthForm = ({ onLogin }) => { 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null); 
@@ -23,13 +23,14 @@ const AuthForm = () => {
       localStorage.setItem('token', response.data.accessToken); 
       setSuccess('Logged in successfully!');
       setError(null);
-      navigate('/');
+      onLogin(); 
+      navigate('/'); 
     } catch (error) {
       console.error('Error during signin:', error.response?.data || error.message);
       setError('Error during signin: ' + (error.response?.data?.message || error.message));
       setSuccess(null);
     }
-  };
+};
 
   const handleSubmitSignup = async (e) => {
     e.preventDefault();
@@ -42,7 +43,6 @@ const AuthForm = () => {
       console.log('User registered:', response.data);
       setSuccess('User registered successfully!');
       setError(null);
-      // Автоматический переход на страницу входа
       setIsSignUp(false);
     } catch (error) {
       console.error('Error during signup:', error.response?.data || error.message);

@@ -1,0 +1,16 @@
+body {
+    background-color: #f0f2f5; 
+}
+
+button {
+    margin-top: 10px; 
+}
+
+.MuiButton-contained {
+    background-color: #1976d2; 
+    color: white;
+}
+
+.MuiButton-contained:hover {
+    background-color: #115293; 
+}
