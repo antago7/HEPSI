@@ -4,10 +4,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src              
+      - /app/node_modules             
     ports:
       - "3000:3000"
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
       - DB_HOST=db                  
       - DB_PORT=3306                
       - DB_USER=root                
@@ -20,8 +23,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.frontend
+    volumes:
+      - ./hepsi_frontend:/app           
+      - /app/node_modules              
     ports:
-      - "8000:80"
+      - "8000:8000"
     depends_on:
       - backend
 

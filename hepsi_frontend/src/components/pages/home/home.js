@@ -8,9 +8,9 @@ const HomePage = () => {
             <header className="header">
                 <h1 className="logo">HEPSI Online Platform</h1>
                 <nav className="nav">
-                    <Link to="/courses">Courses</Link> {/* Ссылка на курсы */}
-                    <Link to="/contacts">Contacts</Link> {/* Ссылка на контакты */}
-                    <Link to="/auth">Auth</Link> {/* Ссылка на страницу аутентификации */}
+                    <Link to="/courses">Courses</Link> 
+                    <Link to="/contacts">Contacts</Link> 
+                    <Link to="/auth">Auth</Link> 
                 </nav>
             </header>
 
