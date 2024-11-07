@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Card, CardContent, CardActions, Button, Collapse, IconButton, Box } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/system';
-import "./seemore.css";
+import "./devopspage.css"; 
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -16,24 +16,16 @@ const ExpandMore = styled((props) => {
 }));
 
 const courseDetails = [
-    {
-        title: "Network Engineering",
-        description: "Learn about network design, configuration, and security best practices.",
-        moreInfo: "This course covers networking fundamentals, routing protocols, troubleshooting, and network security practices to keep your systems secure and efficient.",
-    },
+
     {
         title: "DevOps",
         description: "Master collaboration, automation, and CI/CD pipelines in DevOps.",
         moreInfo: "Explore essential DevOps practices including automated testing, deployment, and monitoring, with a focus on improving collaboration between development and operations.",
     },
-    {
-        title: "Cybersecurity",
-        description: "Dive into threat analysis, risk management, and cybersecurity protocols.",
-        moreInfo: "Gain insights into data protection, risk assessment, encryption, and strategies for defending against cyber threats and securing information systems.",
-    }
+    
 ];
 
-const SeeMorePage = () => {
+const DevOpsPage = () => {
     const [expanded, setExpanded] = React.useState(-1);
 
     const handleExpandClick = (index) => {
@@ -88,4 +80,4 @@ const SeeMorePage = () => {
     );
 };
 
-export default SeeMorePage;
+export default DevOpsPage;
