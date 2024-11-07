@@ -1,71 +1,29 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom'; 
-import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
-import './home.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import HomePage from "./components/pages/home/home";
+import AuthForm from "./components/pages/auth/sign";
+import CoursePage from "./components/pages/courses/courses";
+import ContactPage from "./components/pages/contacts/contacts";
 
-const HomePage = () => {
-    const navigate = useNavigate(); 
+function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    return (
-        <div className="home-container">
-            <AppBar position="static" color="primary">
-                <Toolbar>
-                    <Typography variant="h6" className="logo" style={{ flexGrow: 1 }}>
-                        HEPSI Online Platform
-                    </Typography>
-                    <Button component={Link} to="/courses" color="inherit">Courses</Button>
-                    <Button component={Link} to="/contacts" color="inherit">Contacts</Button>
-                    <Button component={Link} to="/auth" color="inherit">Auth</Button>
-                </Toolbar>
-            </AppBar>
+  const handleLogin = () => {
+    setIsAuthenticated(true); 
+  };
 
-            <Container maxWidth="md" className="main-content">
-                <section className="intro-section">
-                    <Typography variant="h4" gutterBottom>
-                        Start Learning Programming
-                    </Typography>
-                    <Typography variant="body1" color="textSecondary" gutterBottom>
-                        Enhance your skills and dive into the world of coding with our specialized courses.
-                    </Typography>
-                    <div className="button-group">
-                        <Button variant="contained" color="primary" style={{ marginRight: '20px' }}>
-                            Start Education
-                        </Button>
-                        <Button
-                            variant="outlined"
-                            color="secondary"
-                            onClick={() => navigate('/seemore')} // Navigate to /seemore page
-                        >
-                            See More
-                        </Button>
-                    </div>
-                </section>
+  return (
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} /> 
+          <Route path="/auth" element={<AuthForm onLogin={handleLogin} />} />
+          <Route path="/courses" element={isAuthenticated ? <CoursePage /> : <Navigate to="/auth" />} />
+          <Route path="/contacts" element={isAuthenticated ? <ContactPage /> : <Navigate to="/auth" />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
 
-                <section className="courses-section" id="courses">
-                    <Typography variant="h5" gutterBottom>
-                        Our Courses
-                    </Typography>
-                    <Box display="flex" flexWrap="wrap" justifyContent="space-between" spacing={2}>
-                        <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
-                            <div className="course-card">DevOps</div>
-                        </Box>
-                        <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
-                            <div className="course-card">Network Engineer</div>
-                        </Box>
-                        <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
-                            <div className="course-card">Cybersecurity</div>
-                        </Box>
-                    </Box>
-                </section>
-
-                <footer className="footer" id="contacts">
-                    <Typography variant="body2">
-                        <a href="https://github.com/antago7" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </Typography>
-                </footer>
-            </Container>
-        </div>
-    );
-};
-
-export default HomePage;
+export default App;
