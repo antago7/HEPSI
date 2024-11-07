@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Card, CardContent, CardActions, Button, Collapse, IconButton, Box } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/system';
-import "seemore.css";
+import "./seemore.css";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
