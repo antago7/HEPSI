@@ -51,17 +51,17 @@ const SeeMorePage = () => {
             <Box display="flex" flexWrap="wrap" justifyContent="center" gap={3} mt={4}>
                 {courseDetails.map((course, index) => (
                     <Box key={index} width={{ xs: '100%', sm: '48%', md: '30%' }}>
-                        <Card>
+                        <Card sx={{backgroundColor: '#3a87df'}}>
                             <CardContent>
-                                <Typography variant="h5" component="div">
+                                <Typography variant="h5" component="div" color='white'>  
                                     {course.title}
                                 </Typography>
-                                <Typography variant="body2" color="textSecondary">
+                                <Typography variant="body2" color="black">
                                     {course.description}
                                 </Typography>
                             </CardContent>
                             <CardActions disableSpacing>
-                                <Button variant="outlined" color="primary">
+                                <Button variant="outlined" color="white">
                                     Enroll Now
                                 </Button>
                                 <ExpandMore
