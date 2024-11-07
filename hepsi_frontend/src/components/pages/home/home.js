@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
 import "./home.css";
 
 const HomePage = () => {
+    const navigate = useNavigate(); 
+
     return (
         <div className="home-container">
             <AppBar position="static" color="primary">
@@ -29,9 +31,11 @@ const HomePage = () => {
                         <Button variant="contained" color="primary" style={{ marginRight: '20px' }}>
                             Start Education
                         </Button>
-                        <Button variant="outlined"
-                                color="secondary"
-                                onClick={() => navigate('/seemore')}>
+                        <Button
+                            variant="outlined"
+                            color="secondary"
+                            onClick={() => navigate('/seemore')}
+                        >
                             See More
                         </Button>
                     </div>
