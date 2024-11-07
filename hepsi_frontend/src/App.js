@@ -4,6 +4,7 @@ import HomePage from "./components/pages/home/home";
 import AuthForm from "./components/pages/auth/sign";
 import CoursePage from "./components/pages/courses/courses";
 import ContactPage from "./components/pages/contacts/contacts";
+import SeeMorePage from "./components/subpage/seemore";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -20,6 +21,7 @@ function App() {
           <Route path="/auth" element={<AuthForm onLogin={handleLogin} />} />
           <Route path="/courses" element={isAuthenticated ? <CoursePage /> : <Navigate to="/auth" />} />
           <Route path="/contacts" element={isAuthenticated ? <ContactPage /> : <Navigate to="/auth" />} />
+          <Route path="/seemore" element={isAuthenticated ? <SeeMorePage /> : <Navigate to="/auth" />} />
         </Routes>
       </div>
     </Router>
