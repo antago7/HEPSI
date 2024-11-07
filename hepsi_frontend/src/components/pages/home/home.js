@@ -29,7 +29,9 @@ const HomePage = () => {
                         <Button variant="contained" color="primary" style={{ marginRight: '20px' }}>
                             Start Education
                         </Button>
-                        <Button variant="outlined" color="secondary">
+                        <Button variant="outlined"
+                                color="secondary"
+                                onClick={() => navigate('/seemore')}>
                             See More
                         </Button>
                     </div>
