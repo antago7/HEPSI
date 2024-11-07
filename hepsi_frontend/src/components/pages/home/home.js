@@ -22,7 +22,7 @@ const HomePage = () => {
                     <Typography variant="h4" gutterBottom>
                         Start Learning Programming
                     </Typography>
-                    <Typography variant="body1" color="textSecondary" gutterBottom>
+                    <Typography variant="body1" color="white" gutterBottom>
                         Enhance your skills and dive into the world of coding with our specialized courses.
                     </Typography>
                     <div className="button-group">
