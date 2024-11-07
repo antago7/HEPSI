@@ -36,7 +36,7 @@ services:
       MYSQL_ROOT_PASSWORD: Your_New_P@ssword123  
       MYSQL_DATABASE: HEPSI
     ports:
-      - "3300:3300"
+      - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
 
