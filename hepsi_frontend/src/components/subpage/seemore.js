@@ -51,7 +51,7 @@ const SeeMorePage = () => {
             <Box display="flex" flexWrap="wrap" justifyContent="center" gap={3} mt={4}>
                 {courseDetails.map((course, index) => (
                     <Box key={index} width={{ xs: '100%', sm: '48%', md: '30%' }}>
-                        <Card>
+                        <Card >
                             <CardContent>
                                 <Typography variant="h5" component="div">
                                     {course.title}
@@ -61,7 +61,7 @@ const SeeMorePage = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions disableSpacing>
-                                <Button variant="outlined" color="primary">
+                                <Button variant="outlined" color="white">
                                     Enroll Now
                                 </Button>
                                 <ExpandMore
