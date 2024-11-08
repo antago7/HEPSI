@@ -1,81 +1,71 @@
-import React, { useState } from 'react';
-import { AppBar, Tabs, Tab, Typography, Container, Box, Collapse, Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import './courses.css'; 
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Box, Card, CardContent, CardActions, Button, Typography, Container } from '@mui/material';
 
-const CoursePage = () => {
-    const [value, setValue] = useState(0);
-    const [open, setOpen] = useState(false); 
-    const navigate = useNavigate(); 
+const BookList = () => {
+  const [books, setBooks] = useState([]);
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-        setOpen(true); 
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/books');
+        setBooks(response.data);
+      } catch (error) {
+        console.error('Error fetching books:', error);
+      }
     };
 
-    const renderCourseDescription = () => {
-        switch (value) {
-            case 0:
-                return (
-                    <div className="course-description">
-                        <Typography variant="body1">
-                            <strong>DevOps</strong>: This course covers the essential concepts and practices of DevOps,
-                            focusing on collaboration, automation, and continuous integration and deployment (CI/CD).
-                        </Typography>
-                    </div>
-                );
-            case 1:
-                return (
-                    <div className="course-description">
-                        <Typography variant="body1">
-                            <strong>Network Engineering</strong>: This course provides an overview of network design, 
-                            configuration, and management, with an emphasis on troubleshooting and security best practices.
-                        </Typography>
-                    </div>
-                );
-            case 2:
-                return (
-                    <div className="course-description">
-                        <Typography variant="body1">
-                            <strong>Cybersecurity</strong>: This course explores the fundamentals of cybersecurity, 
-                            including threat analysis, risk management, and security protocols to protect sensitive information.
-                        </Typography>
-                    </div>
-                );
-            default:
-                return null;
-        }
-    };
+    fetchBooks();
+  }, []);
 
-    return (
-        <Container>
-            <AppBar position="static">
-                <Tabs value={value} onChange={handleChange} variant="fullWidth">
-                    <Tab label="DevOps" />
-                    <Tab label="Network Engineering" />
-                    <Tab label="Cybersecurity" />
-                </Tabs>
-            </AppBar>
-            <Box p={3}>
-                <Typography variant="h5" gutterBottom>
-                    {value === 0 && "DevOps"}
-                    {value === 1 && "Network Engineering"}
-                    {value === 2 && "Cybersecurity"}
+  const handleDownload = async (key) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/books/${key}`, {
+        responseType: 'blob', 
+      });
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', key); 
+      document.body.appendChild(link);
+      link.click();
+    } catch (error) {
+      console.error('Error downloading book:', error);
+    }
+  };
+
+  return (
+    <Container>
+      <Typography variant="h4" align="center" gutterBottom>
+        Book Library
+      </Typography>
+      <Box display="flex" flexWrap="wrap" gap={4} justifyContent="center">
+        {books.map((book) => (
+          <Box key={book.key} width="100%" maxWidth={300}>
+            <Card>
+              <CardContent>
+                <Typography variant="h6" component="h2">
+                  {book.key.replace('.pdf', '')}
                 </Typography>
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                    <Box mt={2}>
-                        {renderCourseDescription()}
-                    </Box>
-                </Collapse>
-                <Button onClick={() => setOpen(false)} variant="outlined" color="primary" style={{ marginTop: '20px' }}>
-                    Close Description
+                <Typography color="textSecondary" variant="body2">
+                  {`Book Key: ${book.key}`}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => handleDownload(book.key)}
+                >
+                  Download
                 </Button>
-                <Button onClick={() => navigate('/')} variant="contained" color="secondary" style={{ marginTop: '20px', marginLeft: '10px' }}>
-                    Back to Home
-                </Button>
-            </Box>
-        </Container>
-    );
+              </CardActions>
+            </Card>
+          </Box>
+        ))}
+      </Box>
+    </Container>
+  );
 };
 
-export default CoursePage;
+export default BookList;

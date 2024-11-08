@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
 import { User } from './auth/user.entity';
 import { JwtModule } from '@nestjs/jwt'; 
 import { ConfigModule } from '@nestjs/config';
+import { BookController } from './book.controller';
+import { S3Service } from './s3.service';
 
 @Module({
   imports: [
@@ -25,10 +26,11 @@ import { ConfigModule } from '@nestjs/config';
     AuthModule,
     TypeOrmModule.forFeature([User]),
     JwtModule.register({
-      secret: 'GQ0r3QbaPQG5ETFzL8I4ux0XXbAz2yfoHI1j4V+EZN8=', 
+      secret: process.env.JWT_SECRET, 
       signOptions: { expiresIn: '1h' }, 
     }),
   ],
-  providers: [AuthService],
+  controllers: [BookController],
+  providers: [AuthService, S3Service],
 })
 export class AppModule {}

@@ -41,11 +41,7 @@ const NEpage = () => {
             <Box display="flex" flexWrap="wrap" justifyContent="center" gap={3} mt={4}>
                 {courseDetails.map((course, index) => (
                     <Box key={index} width={{ xs: '100%', sm: '48%', md: '30%' }}>
-<<<<<<< HEAD:hepsi_frontend/src/components/subpage/seemore.js
-                        <Card >
-=======
                         <Card sx={{backgroundColor: '#3a87df'}}>
->>>>>>> a3274aa3f30c81401134cded641cb3847b2aa800:hepsi_frontend/src/components/pages/NEengineering/NEengineering.js
                             <CardContent>
                                 <Typography variant="h5" component="div" color='white'>  
                                     {course.title}
