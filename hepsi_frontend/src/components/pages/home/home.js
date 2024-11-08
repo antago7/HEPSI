@@ -14,7 +14,7 @@ const HomePage = () => {
                     <Typography variant="h6" className="logo" style={{ flexGrow: 1 }}>
                         HEPSI Online Platform
                     </Typography>
-                    <Button component={Link} to="/courses" color="inherit">BOOKS</Button>
+                    <Button component={Link} to="/books" color="inherit">BOOKS</Button>
                     <Button component={Link} to="/contacts" color="inherit">Contacts</Button>
                     <Button component={Link} to="/auth" color="inherit">Auth</Button>
                 </Toolbar>
@@ -41,11 +41,7 @@ const HomePage = () => {
                     </Typography>
                     <Box display="flex" flexWrap="wrap" justifyContent="space-between" spacing={2}>
                         <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
-<<<<<<< HEAD
-                            <Link to="/devops">
-=======
                             <Link className="link" to="/devops">
->>>>>>> a3274aa3f30c81401134cded641cb3847b2aa800
                                 <div className="course-card">DevOps</div>
                             </Link>
                         </Box>
