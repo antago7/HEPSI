@@ -14,7 +14,6 @@
     text-align: center;
 }
 
-/* Main content */
 .main-content {
     padding: 40px 20px;
 }
@@ -44,7 +43,6 @@
     background-color: #4a90e2;
 }
 
-/* Footer */
 .footer {
     margin-top: 60px;
     padding: 20px;
@@ -61,4 +59,9 @@
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit; 
 }

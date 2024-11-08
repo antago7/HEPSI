@@ -41,23 +41,23 @@ const HomePage = () => {
                     </Typography>
                     <Box display="flex" flexWrap="wrap" justifyContent="space-between" spacing={2}>
                         <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
-                            <Link to="/devops">
+                            <Link className="link" to="/devops">
                                 <div className="course-card">DevOps</div>
                             </Link>
                         </Box>
-                        <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
-                            <Link to="/nepage">
-                                <div className="course-card">Network Engineer</div>
-                            </Link>
-                        </Box>
-                        <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
-                            <Link to="cspage">
-                                <div className="course-card">Cybersecurity</div>
-                            </Link>
-                            
-                        </Box>
+                    <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
+                        <Link className="link" to="/nepage">
+                            <div className="course-card">Network Engineer</div>
+                        </Link>
+                    </Box>
+                    <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
+                        <Link className="link" to="/cspage">
+                            <div className="course-card">Cybersecurity</div>
+                        </Link>
+                    </Box>
                     </Box>
                 </section>
+
 
                 <footer className="footer" id="contacts">
                     <Typography variant="body2">
