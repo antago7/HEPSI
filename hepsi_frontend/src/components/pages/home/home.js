@@ -47,7 +47,9 @@ const HomePage = () => {
                     </Typography>
                     <Box display="flex" flexWrap="wrap" justifyContent="space-between" spacing={2}>
                         <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
-                            <div className="course-card">DevOps</div>
+                            <Link to="/devops">
+                                <div className="course-card">DevOps</div>
+                            </Link>
                         </Box>
                         <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
                             <div className="course-card">Network Engineer</div>
