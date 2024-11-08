@@ -21,12 +21,12 @@ const BookList = () => {
   const handleDownload = async (key) => {
     try {
       const response = await axios.get(`http://localhost:3000/books/${key}`, {
-        responseType: 'blob', 
+        responseType: 'blob',
       });
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', key); 
+      link.setAttribute('download', key);
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -45,7 +45,8 @@ const BookList = () => {
             <Card>
               <CardContent>
                 <Typography variant="h6" component="h2">
-                  {book.key.replace('.pdf', '')}
+                  {/* Ensure that book.key is defined before calling replace */}
+                  {book.key ? book.key.replace('.pdf', '') : 'Untitled Book'}
                 </Typography>
                 <Typography color="textSecondary" variant="body2">
                   {`Book Key: ${book.key}`}
