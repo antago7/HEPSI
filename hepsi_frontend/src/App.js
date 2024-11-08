@@ -4,7 +4,10 @@ import HomePage from "./components/pages/home/home";
 import AuthForm from "./components/pages/auth/sign";
 import CoursePage from "./components/pages/courses/courses";
 import ContactPage from "./components/pages/contacts/contacts";
-import SeeMorePage from "./components/subpage/seemore";
+import DevOpsPage from "./components/pages/devopspage/devopspage";
+import NEpage from "./components/pages/NEengineering/NEengineering";
+import Cspage from "./components/pages/cybersecurity/cybersecurity";
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,7 +24,9 @@ function App() {
           <Route path="/auth" element={<AuthForm onLogin={handleLogin} />} />
           <Route path="/courses" element={isAuthenticated ? <CoursePage /> : <Navigate to="/auth" />} />
           <Route path="/contacts" element={isAuthenticated ? <ContactPage /> : <Navigate to="/auth" />} />
-          <Route path="/seemore" element={isAuthenticated ? <SeeMorePage /> : <Navigate to="/auth" />} />
+          <Route path="/devops" element={isAuthenticated ? <DevOpsPage /> : <Navigate to="/auth " />} /> 
+          <Route path="/nepage" element={isAuthenticated ? <NEpage /> : <Navigate to=" /auth" />} />
+          <Route path="/cspage" element={isAuthenticated ? <Cspage /> : <Navigate to=" /auth" />} />
         </Routes>
       </div>
     </Router>

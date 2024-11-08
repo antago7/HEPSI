@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
 import "./home.css";
+import NEpage from '../NEengineering/NEengineering';
 
 const HomePage = () => {
     const navigate = useNavigate(); 
@@ -13,7 +14,7 @@ const HomePage = () => {
                     <Typography variant="h6" className="logo" style={{ flexGrow: 1 }}>
                         HEPSI Online Platform
                     </Typography>
-                    <Button component={Link} to="/courses" color="inherit">Courses</Button>
+                    <Button component={Link} to="/courses" color="inherit">BOOKS</Button>
                     <Button component={Link} to="/contacts" color="inherit">Contacts</Button>
                     <Button component={Link} to="/auth" color="inherit">Auth</Button>
                 </Toolbar>
@@ -31,13 +32,6 @@ const HomePage = () => {
                         <Button variant="contained" color="primary" style={{ marginRight: '20px' }}>
                             Start Education
                         </Button>
-                        <Button
-                            variant="outlined"
-                            color="secondary"
-                            onClick={() => navigate('/seemore')}
-                        >
-                            See More
-                        </Button>
                     </div>
                 </section>
 
@@ -47,18 +41,27 @@ const HomePage = () => {
                     </Typography>
                     <Box display="flex" flexWrap="wrap" justifyContent="space-between" spacing={2}>
                         <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
+<<<<<<< HEAD
                             <Link to="/devops">
+=======
+                            <Link className="link" to="/devops">
+>>>>>>> a3274aa3f30c81401134cded641cb3847b2aa800
                                 <div className="course-card">DevOps</div>
                             </Link>
                         </Box>
-                        <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
+                    <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
+                        <Link className="link" to="/nepage">
                             <div className="course-card">Network Engineer</div>
-                        </Box>
-                        <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
+                        </Link>
+                    </Box>
+                    <Box width={{ xs: '100%', sm: '30%' }} marginBottom={2}>
+                        <Link className="link" to="/cspage">
                             <div className="course-card">Cybersecurity</div>
-                        </Box>
+                        </Link>
+                    </Box>
                     </Box>
                 </section>
+
 
                 <footer className="footer" id="contacts">
                     <Typography variant="body2">
