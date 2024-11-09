@@ -1,16 +1,23 @@
-body {
-    background-color: #f0f2f5; 
-}
 
-button {
-    margin-top: 10px; 
+body {
+    margin: 0;
+    padding: 0;
 }
 
 .MuiButton-contained {
     background-color: #1976d2; 
     color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    text-transform: none;
 }
 
 .MuiButton-contained:hover {
     background-color: #115293; 
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.MuiButton-contained:active {
+    background-color: #0c4c8f;
 }
