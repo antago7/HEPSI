@@ -19,12 +19,12 @@ export class BookController {
   @Get(':bookKey')
   async getBook(@Param('bookKey') bookKey: string, @Res() res: Response) {
     try {
-      const bookBuffer = await this.s3Service.getBook(bookKey);
+      const data = await this.s3Service.getBook(bookKey);
       res.set({
-        'Content-Type': 'application/pdf',
+        'Content-Type': data.ContentType || 'application/octet-stream',
         'Content-Disposition': `inline; filename="${bookKey}"`,
       });
-      res.send(bookBuffer);
+      res.send(data.Body);
     } catch (error) {
       throw new HttpException('Book not found', HttpStatus.NOT_FOUND);
     }
