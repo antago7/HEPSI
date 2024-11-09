@@ -16,7 +16,7 @@ const HomePage = () => {
                     </Typography>
                     <Button component={Link} to="/courses" color="inherit">BOOKS</Button>
                     <Button component={Link} to="/contacts" color="inherit">Contacts</Button>
-                    <Button component={Link} to="/auth" color="inherit">Auth</Button>
+                    <Button component={Link} to="/auth" color="inherit">SIGN IN</Button>
                 </Toolbar>
             </AppBar>
 
