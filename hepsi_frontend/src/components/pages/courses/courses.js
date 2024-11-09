@@ -9,6 +9,7 @@ const BookList = () => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get('http://localhost:3000/books');
+        console.log('Fetched books:', response.data);
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching books:', error);
@@ -29,9 +30,14 @@ const BookList = () => {
       link.setAttribute('download', key);
       document.body.appendChild(link);
       link.click();
+      link.remove();
     } catch (error) {
       console.error('Error downloading book:', error);
     }
+  };
+
+  const handleOpen = (key) => {
+    window.open(`http://localhost:3000/books/${key}`, '_blank');
   };
 
   return (
@@ -40,16 +46,18 @@ const BookList = () => {
         Book Library
       </Typography>
       <Box display="flex" flexWrap="wrap" gap={4} justifyContent="center">
-        {books.map((book) => (
-          <Box key={book.key} width="100%" maxWidth={300}>
+        {books.map((book, index) => (
+          <Box key={book.key || index} width="100%" maxWidth={300}>
             <Card>
               <CardContent>
                 <Typography variant="h6" component="h2">
-                  {/* Ensure that book.key is defined before calling replace */}
-                  {book.key ? book.key.replace('.pdf', '') : 'Untitled Book'}
+                  {book.title || "Untitled Book"}
                 </Typography>
                 <Typography color="textSecondary" variant="body2">
-                  {`Book Key: ${book.key}`}
+                  {book.author ? `Author: ${book.author}` : "Author: Unknown"}
+                </Typography>
+                <Typography color="textSecondary" variant="body2">
+                  {`Book Key: ${book.key || "undefined"}`}
                 </Typography>
               </CardContent>
               <CardActions>
@@ -59,6 +67,13 @@ const BookList = () => {
                   onClick={() => handleDownload(book.key)}
                 >
                   Download
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => handleOpen(book.key)}
+                >
+                  Open
                 </Button>
               </CardActions>
             </Card>
