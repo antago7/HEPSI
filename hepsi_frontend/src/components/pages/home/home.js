@@ -14,7 +14,7 @@ const HomePage = () => {
                     <Typography variant="h6" className="logo" style={{ flexGrow: 1 }}>
                         HEPSI Online Platform
                     </Typography>
-                    <Button component={Link} to="/courses" color="inherit">BOOKS</Button>
+                    <Button component={Link} to="/books" color="inherit">BOOKS</Button>
                     <Button component={Link} to="/contacts" color="inherit">Contacts</Button>
                     <Button component={Link} to="/auth" color="inherit">SIGN IN</Button>
                 </Toolbar>
