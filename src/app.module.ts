@@ -7,6 +7,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { BookModule } from './booksModules/book.module'; 
 import { S3Service } from './s3.service';
+import { FirebaseService } from './firebae.service';
 
 @Module({
   imports: [
@@ -32,6 +33,6 @@ import { S3Service } from './s3.service';
     BookModule, 
   ],
   controllers: [],
-  providers: [AuthService, S3Service],
+  providers: [AuthService, S3Service, FirebaseService],
 })
 export class AppModule {}
