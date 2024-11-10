@@ -8,7 +8,7 @@ import { User } from './auth/user.entity';
 import { JwtModule } from '@nestjs/jwt'; 
 import { ConfigModule } from '@nestjs/config';
 import { BookModule } from './booksModules/book.module'; 
-import { S3Service } from './s3.service';
+import { S3Service } from './single-services/s3.service';
 import { RedisService } from './redis/redis.service';
 
 @Module({

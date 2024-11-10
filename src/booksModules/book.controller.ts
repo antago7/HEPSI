@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Res, HttpException, HttpStatus } from '@nestjs/common';
-import { S3Service } from '../s3.service'; 
-import { CoverService } from '../cover.service'; 
+import { S3Service } from '../single-services/s3.service'; 
+import { CoverService } from '../single-services/cover.service'; 
 import { Response } from 'express'; 
 
 @Controller('books')
