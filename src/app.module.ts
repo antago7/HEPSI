@@ -5,7 +5,7 @@ import { AuthService } from './auth/auth.service';
 import { User } from './auth/user.entity';
 import { JwtModule } from '@nestjs/jwt'; 
 import { ConfigModule } from '@nestjs/config';
-import { BookController } from './book.controller';
+import { BookModule } from './booksModules/book.module'; 
 import { S3Service } from './s3.service';
 
 @Module({
@@ -29,8 +29,9 @@ import { S3Service } from './s3.service';
       secret: process.env.JWT_SECRET, 
       signOptions: { expiresIn: '1h' }, 
     }),
+    BookModule, 
   ],
-  controllers: [BookController],
+  controllers: [],
   providers: [AuthService, S3Service],
 })
 export class AppModule {}
