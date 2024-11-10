@@ -32,7 +32,7 @@ export class AuthController {
 
   @Delete('logout/:userId')
   async logout(@Param('userId') userId: string) {
-    await this.redisService.delete(userId); // Удаляем токен из Redis
+    await this.redisService.delete(userId); 
     return { message: 'Logged out successfully' };
   }
 }
