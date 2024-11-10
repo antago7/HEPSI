@@ -9,6 +9,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { BookModule } from './booksModules/book.module'; 
 import { S3Service } from './s3.service';
+import { RedisService } from './redis/redis.service';
 
 @Module({
   imports: [
@@ -34,6 +35,6 @@ import { S3Service } from './s3.service';
     BookModule, 
   ],
   controllers: [],
-  providers: [AuthService, S3Service],
+  providers: [AuthService, S3Service, RedisService],
 })
 export class AppModule {}
