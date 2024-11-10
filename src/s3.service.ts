@@ -26,13 +26,17 @@ export class S3Service {
         }
     }
 
-    async listBooks(): Promise<string[]> {
+    async listBooks(): Promise<{ key: string, title: string, author: string }[]> {
         try {
             const params = {
                 Bucket: process.env.AWS_S3_BUCKET_NAME,
             };
             const data = await this.s3.listObjectsV2(params).promise();
-            return data.Contents?.map((item) => item.Key) || [];
+
+            return data.Contents?.map((item) => {
+                const title = item.Key?.split('/').pop()?.replace('.pdf', '') || 'Untitled Book';
+                return { key: item.Key, title, author: 'Unknown' };
+            }) || [];
         } catch (error) {
             console.error('Error listing books:', error);
             throw new InternalServerErrorException('Error listing books');

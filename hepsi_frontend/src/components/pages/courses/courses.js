@@ -24,13 +24,13 @@ const BookList = () => {
 
   const handleDownload = async (key) => {
     try {
-      const response = await axios.get(`http://localhost:3000/books/${key}`, {
+      const response = await axios.get(`http://localhost:3000/books/${encodeURIComponent(key)}`, {
         responseType: 'blob',
       });
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', key);
+      link.setAttribute('download', key.split('/').pop()); 
       document.body.appendChild(link);
       link.click();
       link.remove();
@@ -38,10 +38,11 @@ const BookList = () => {
       console.error('Error downloading book:', error);
     }
   };
-
+  
   const handleOpen = (key) => {
-    window.open(`http://localhost:3000/books/${key}`, '_blank');
+    window.open(`http://localhost:3000/books/${encodeURIComponent(key)}`, '_blank');
   };
+  
 
   return (
     <Container>
@@ -49,7 +50,6 @@ const BookList = () => {
         Book Library
       </Typography>
 
-      {/* Display loading spinner if books are being fetched */}
       {loading ? (
         <Box display="flex" justifyContent="center" alignItems="center" mt={5}>
           <CircularProgress />
@@ -64,8 +64,30 @@ const BookList = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Box width="100%" maxWidth={300}>
-                <Card elevation={3} sx={{ transition: 'transform 0.3s ease', '&:hover': { transform: 'scale(1.05)' } }}>
-                  <CardContent>
+                <Card
+                  elevation={3}
+                  sx={{
+                    width: 300,
+                    height: 250,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    transition: 'transform 0.3s ease',
+                    '&:hover': { transform: 'scale(1.05)' },
+                  }}
+                >
+                  <CardContent
+                    sx={{
+                      flex: 1,
+                      overflow: 'hidden',
+                      height: '100px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      whiteSpace: 'normal',
+                      overflowY: 'auto',
+                    }}
+                  >
                     <Typography variant="h6" component="h2">
                       {book.title || 'Untitled Book'}
                     </Typography>
