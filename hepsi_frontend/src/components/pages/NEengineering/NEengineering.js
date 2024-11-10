@@ -170,7 +170,7 @@ const NEpage = () => {
 
             <Box display="flex" justifyContent="center" mt={5}>
                 <Button variant="contained" size="large" color="secondary">
-                    Enroll Now and Start Your Cybersecurity Journey
+                    Enroll Now and Start Your Journey in Network Engineering
                 </Button>
             </Box>
         </>
