@@ -1,30 +1,31 @@
 import { Injectable } from '@nestjs/common';
-import * as Redis from 'ioredis';
+import Redis from 'ioredis';
 
 @Injectable()
 export class RedisService {
-  private redisClient: Redis.Redis;
+  private redisClient: Redis;
 
   constructor() {
-    // Инициализация клиента Redis
     this.redisClient = new Redis({
       host: 'localhost',
       port: 6379,
+      password: 'your_password',
+      db: 0,
     });
   }
 
-  // Установка ключа в Redis
-  async set(key: string, value: string, ttl: number): Promise<void> {
-    await this.redisClient.set(key, value, 'EX', ttl);
+  // Метод для установки токена
+  async set(key: string, value: string): Promise<void> {
+    await this.redisClient.set(key, value);
   }
 
-  // Получение значения из Redis
+  // Метод для получения токена
   async get(key: string): Promise<string | null> {
     return await this.redisClient.get(key);
   }
 
-  // Удаление токена
-  async deleteToken(key: string): Promise<void> {
-    await this.redisClient.del(key); // Удаляем ключ из Redis
+  // Метод для удаления токена
+  async delete(key: string): Promise<void> {
+    await this.redisClient.del(key);
   }
 }

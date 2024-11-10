@@ -36,5 +36,6 @@ import { RedisService } from './redis/redis.service';
   ],
   controllers: [],
   providers: [AuthService, S3Service, RedisService],
+  exports: [RedisService],
 })
 export class AppModule {}

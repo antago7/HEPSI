@@ -6,7 +6,8 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { User } from './user.entity';
 import { JwtStrategy } from './jwt.strategy';
-import { ProtectedController } from './protected.controller'; 
+import { ProtectedController } from './protected.controller';
+import { RedisModule } from '../redis/redis.module';  
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ProtectedController } from './protected.controller';
       secret: process.env.JWT_SECRET || 'GQ0r3QbaPQG5ETFzL8I4ux0XXbAz2yfoHI1j4V+EZN8=', 
       signOptions: { expiresIn: '1h' },
     }),
+    RedisModule,
   ],
   controllers: [AuthController, ProtectedController],
   providers: [AuthService, JwtStrategy],
